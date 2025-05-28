@@ -77,7 +77,7 @@ function App() {
 
           <Route path='/galeria/:id' element={<DetalleProducto productos={productos}/>}/>
 
-          <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>}/>
+          <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin deltoCart={handleDeltoCart} cart={cart}/> </RutaProtegida>}/>
 
           <Route path='*' element={<NotFound/>}/>
 
