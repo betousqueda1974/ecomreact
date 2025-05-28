@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "nombre": "Llavero",
+    "precio": 3500,
+    "stock": 20,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 2,
+    "nombre": "Vela",
+    "precio": 6000,
+    "stock": 2,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 3,
+    "nombre": "Maceta",
+    "precio": 600,
+    "stock": 10,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 4,
+    "nombre": "Jaula",
+    "precio": 6000,
+    "stock": 15,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 5,
+    "nombre": "Arcoiris",
+    "precio": 2500,
+    "stock": 30,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 6,
+    "nombre": "Macarrones",
+    "precio": 2000,
+    "stock": 10,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 7,
+    "nombre": "Maceta",
+    "precio": 3500,
+    "stock": 20,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  },
+  {
+    "id": 8,
+    "nombre": "Vela",
+    "precio": 6000,
+    "stock": 15,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6rPd9hx_fUGzorshx1fG5kzUM5FGCSYmm2YBuLU3uSFFI5BviIWd6hrHbw&s"
+  }
+]
