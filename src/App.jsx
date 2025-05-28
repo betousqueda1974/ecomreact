@@ -6,6 +6,9 @@ import GaleriaProductos from './assets/layouts/GaleriaProductos'
 import AcercaDe from './assets/layouts/AcercaDe'
 import Contactos from './assets/layouts/Contactos'
 import NotFound from './assets/layouts/NotFound'
+import DetalleProducto from './assets/components/nofijos/DetalleProducto'
+import Admin from './assets/layouts/Admin'
+import RutaProtegida from './auth/RutaProtegida'
 
 function App() {
 
@@ -13,6 +16,7 @@ function App() {
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(false)
+  const [isAuthenticated, setIsAuth] = useState(false)
 
   useEffect(()=>{
     fetch('/data/data.json')
@@ -70,7 +74,11 @@ function App() {
           <Route path='/acercade' element={<AcercaDe deltoCart={handleDeltoCart} cart={cart}/>}/>
 
           <Route path='/contacto' element={<Contactos deltoCart={handleDeltoCart} cart={cart}/>}/>
-          
+
+          <Route path='/galeria/:id' element={<DetalleProducto productos={productos}/>}/>
+
+          <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>}/>
+
           <Route path='*' element={<NotFound/>}/>
 
         </Routes>

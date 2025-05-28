@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './stylesProductos.css'
+import { Link } from 'react-router-dom'
 
 const Productos = ({producto, addToCart}) => {
 
@@ -24,6 +25,9 @@ const Productos = ({producto, addToCart}) => {
       </div>
 
       <button onClick={() => addToCart(producto)} >Agregar al carrito</button>
+      
+      <Link to={`/galeria/${producto.id}`}>Detalle</Link>
+      
     </section>
   )
 }
