@@ -1,7 +1,11 @@
 import React from 'react'
+import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { CartContext } from '../../../context/CartContext'
 
-const DetalleProducto = ({productos}) => {
+const DetalleProducto = () => {
+
+  const {productos} = useContext(CartContext)
 
   const {id} = useParams()
 
