@@ -10,6 +10,7 @@ import DetalleProducto from './assets/components/nofijos/DetalleProducto'
 import Admin from './assets/layouts/Admin'
 import RutaProtegida from './auth/RutaProtegida'
 import { CartContext } from './context/CartContext'
+import Login from './assets/layouts/Login'
 
 function App() {
   const {cart, productos, cargando, error, isAuthenticated, handleAddtoCart, handleDeltoCart} = useContext(CartContext)
@@ -30,6 +31,8 @@ function App() {
           <Route path='/galeria/:id' element={<DetalleProducto />}/>
 
           <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>}/>
+
+          <Route path='/login' element={<Login />}/>
 
           <Route path='*' element={<NotFound/>}/>
 

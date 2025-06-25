@@ -8,7 +8,7 @@ export const CartProvider = ({children}) => {
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(false)
-  const [isAuthenticated, setIsAuth] = useState(true)
+  const [isAuthenticated, setIsAuth] = useState(false)
 
   useEffect(()=>{
     fetch('/data/data.json')
