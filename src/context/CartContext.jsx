@@ -10,6 +10,7 @@ export const CartProvider = ({children}) => {
   const [error, setError] = useState(false)
   const [isAuthenticated, setIsAuth] = useState(false)
 
+
   useEffect(()=>{
     fetch('/data/data.json')
     .then(respuesta => respuesta.json())
