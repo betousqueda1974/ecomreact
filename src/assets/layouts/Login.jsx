@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
 
   const {isAuthenticated, setIsAuth} = useContext(CartContext)
-  console.log(isAuthenticated)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -28,26 +27,16 @@ const Login = () => {
     const res = await fetch ('data/users.json')
     const users = await res.json()
 
-    console.log(res)
-    console.log(users)
-
     const foundUser = users.find((user) => user.email === email && user.password === password)
-
-    console.log(foundUser)
 
     if (!foundUser){
       setError({email: 'Credenciales inválidas'})
     } else {
       if (foundUser.role === 'admin') {
-        console.log('Es Admin')
         setIsAuth(true)
-        let isAuthenticated = true
-        console.log(isAuthenticated)
-        console.log(setIsAuth)
         navigate('/admin')
       } else {
         navigate('/')
-        console.log('Es User')
       }
     }
 
