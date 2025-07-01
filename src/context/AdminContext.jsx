@@ -54,7 +54,6 @@ export const AdminProvider = ({ children }) => {
                 throw new Error('Error al agregar producto')
             }
             const data = await respuesta.json()
-            // alert('Producto agregado correctamente')
             Swal.fire({
                 title: "Administración de Productos",
                 text: "Producto agregado correctamente",
@@ -100,7 +99,6 @@ export const AdminProvider = ({ children }) => {
                     method: 'DELETE',
                 })
                 if (!respuesta.ok) throw Error('Error al eliminar')
-                // alert('Producto Eliminado correctamente')
                 Swal.fire({
                     title: "Administración de Productos",
                     text: "Producto Eliminado correctamente",
