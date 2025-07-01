@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import AltaProducto from "../components/nofijos/AltaProducto";
 import EditarProducto from "../components/nofijos/EditarProducto";
 import { AdminContext } from "../../context/AdminContext";
+import { CartContext } from "../../context/CartContext";
 
 const Admin = () => {
 
@@ -16,7 +17,14 @@ const Admin = () => {
             agregarProducto,
             actualizarProducto,
             eliminarProducto,
-        } = useContext(AdminContext) 
+        } = useContext(AdminContext)
+    
+    const {isAuthenticated, setIsAuth} = useContext(CartContext)
+
+    const actEstAut = () => {
+      setIsAuth(false);
+      localStorage.setItem('isAuth', false)
+      };
 
     return (
         <div className="container">
@@ -31,8 +39,8 @@ const Admin = () => {
                                     <i className="fa-solid fa-right-from-bracket"></i>
                                 </button>
                             </li> */}
-                            <li className="navItem">
-                                <a href="/admin">Logout</a>
+                            <li className="navItem">     
+                                <a href="/login" onClick={()=> actEstAut()}>Logout</a>
                             </li>
                         </ul>
                     </nav>

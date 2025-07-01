@@ -1,22 +1,3 @@
-/* header, footer{
-  padding: 0.2em 0.2em;
-  background-color:dodgerblue;
-  color: white;
-  font-family: "Roboto", serif;
-  font-weight: 700;
-  font-style: normal;
-} */
-
-/* li {
-  list-style: none;
-  display: inline-block;
-}
-
-li a {
-  text-decoration: none;
-  color:white;
-} */
-
 .containerform form{
   margin-left: 20px;
   display: flex;
@@ -25,7 +6,7 @@ li a {
   align-items: center;
   }
 
-.containerform form input,
+.containerform form .inputContact,
 .containerform form textarea{
   margin-bottom: 10px;
   padding: 10px;
@@ -40,7 +21,7 @@ li a {
   align-items:self-start;
 }
 
-button{
+.buttonContact {
   margin-bottom: 5px;
   width: 30%;
   height: 30px;
@@ -53,7 +34,7 @@ button{
   font-weight: 400;
 }
 
-button:hover {
+ .buttonContact:hover {
   background-color: #534ed5; 
   color: white; 
 }
@@ -90,7 +71,7 @@ button:hover {
     align-items: center;
    }
   
-  .containerform form input,
+  .containerform form .inputContact,
   .containerform form textarea{
     margin-bottom: 10px;
     padding: 10px;
@@ -137,7 +118,7 @@ button:hover {
     align-items: center;
   }
 
-  .containerform form input,
+  .containerform form .inputContact,
   .containerform form textarea{
     margin-bottom: 10px;
     padding: 10px;

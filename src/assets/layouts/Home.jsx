@@ -7,7 +7,7 @@ import loading from '../../assets/loading.gif'
 import { CartContext } from '../../context/CartContext'
 
   const Home = () => {
-    const {cart, productos, cargando, handleAddtoCart, handleDeltoCart} = useContext(CartContext)
+    const {cart, productos, cargando, handleAddtoCart, handleDeltoCart, isAuthenticated, setIsAuth} = useContext(CartContext)
   return (
     <>
       <Header deltoCart={handleDeltoCart} cartItems={cart}/>

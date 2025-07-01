@@ -66,20 +66,20 @@ const Contactos = () => {
           <form onSubmit={handleContactSubmit}  >
 
             <label for="nombre">Nombre</label>
-            <input type="text" name="firstname" placeholder="Nombre" id="nombre" value={nombre}
+            <input className="inputContact" type="text" name="firstname" placeholder="Nombre" id="nombre" value={nombre}
               onChange={(e) => setNombre(e.target.value)} />
             <label for="apellido">Apellido</label>
-            <input type="text" name="lastname" placeholder="Apellido" id="apellido" value={apellido}
+            <input className="inputContact" type="text" name="lastname" placeholder="Apellido" id="apellido" value={apellido}
               onChange={(e) => setApellido(e.target.value)} />
             <label for="telefono">Teléfono</label>
-            <input type="text" name="phone" placeholder="Teléfono" id="telefono" />
+            <input className="inputContact" type="text" name="phone" placeholder="Teléfono" id="telefono" />
             <label for="email">Correo</label>
-            <input type="email" name="correo" placeholder="Email" id="email" value={email}
+            <input className="inputContact" type="email" name="correo" placeholder="Email" id="email" value={email}
               onChange={(e) => setEmail(e.target.value)} />
             <label for="consulta">Consulta</label>
             <textarea name="cons" id="consulta" placeholder="Consulta" value={consulta}
               onChange={(e) => setConsulta(e.target.value)}></textarea>
-            <button type="submit">Enviar</button>
+            <button className="buttonContact" type="submit">Enviar</button>
 
           </form>
         </div>

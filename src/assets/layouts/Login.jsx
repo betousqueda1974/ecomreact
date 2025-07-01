@@ -1,51 +1,11 @@
-import React, {useState, useContext} from 'react'
-import { CartContext } from '../../context/CartContext'
-import { useNavigate } from 'react-router-dom'
+import React, {useState, useContext} from 'react';
+import { CartContext } from '../../context/CartContext';
+import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
 
   const {isAuthenticated, setIsAuth} = useContext(CartContext)
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState({})
-  const navigate = useNavigate()
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    let validationError = {}
-    if (!email) validationError.email = 'Es obligatorio ingresar un e-mail'
-    if (!password) validationError.password = 'Es obligatorio ingrear un password'
-    
-    if (Object.keys(validationError).length > 0){
-      setError(validationError)
-      return
-    } 
-    
-  try {
-
-    const res = await fetch ('data/users.json')
-    const users = await res.json()
-
-    const foundUser = users.find((user) => user.email === email && user.password === password)
-
-    if (!foundUser){
-      setError({email: 'Credenciales inválidas'})
-    } else {
-      if (foundUser.role === 'admin') {
-        setIsAuth(true)
-        navigate('/admin')
-      } else {
-        navigate('/')
-      }
-    }
-
-  }
-  catch(err){
-    setError({email: 'Hubo algún error. Intentalo más tarde por favor'})
-  }
-
-  }
+  const {email, setEmail, password, setPassword, handleSubmit, error} = useContext(AuthContext)
 
   return (
     <form
