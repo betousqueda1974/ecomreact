@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+
 export const AdminContext = createContext()
 
 export const AdminProvider = ({ children }) => {
@@ -11,94 +13,105 @@ export const AdminProvider = ({ children }) => {
 
 
     useEffect(() => {
-            fetch(apiUrl)
-                .then((response) => response.json())
-                .then((data) => {
-                    setTimeout(() => {
-                        setProductos(data);
-                        setLoading(false);
-                    }, 2000);
-                })
-                .catch((error) => {
-                    console.error("Error fetching data:", error);
-                    setError(true);
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => {
+                setTimeout(() => {
+                    setProductos(data);
                     setLoading(false);
-                });
-        }, []);
-    
-    
-        const cargarProductos = async()=>{
-            try {
-                const res = await fetch(apiUrl)
-                const data = await res.json()
-                setProductos(data)
-            } catch (error) {
-                console.log('Error al cargar productos ', error);
-                
-            }
+                }, 2000);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+                setError(true);
+                setLoading(false);
+            });
+    }, []);
+
+
+    const cargarProductos = async () => {
+        try {
+            const res = await fetch(apiUrl)
+            const data = await res.json()
+            setProductos(data)
+        } catch (error) {
+            console.log('Error al cargar productos ', error);
+
         }
-    
-    
-        const agregarProducto = async (producto) =>{
-            try{
-                const respuesta = await fetch(apiUrl,{
-                    method: 'POST',
+    }
+
+
+    const agregarProducto = async (producto) => {
+        try {
+            const respuesta = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(producto)
+            })
+            if (!respuesta.ok) {
+                throw new Error('Error al agregar producto')
+            }
+            const data = await respuesta.json()
+            // alert('Producto agregado correctamente')
+            Swal.fire({
+                title: "Administración de Productos",
+                text: "Producto agregado correctamente",
+                icon: "success"
+            });
+            cargarProductos()
+            setOpen(false)
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    }
+
+
+    const actualizarProducto = async (producto) => {
+        try {
+            const respuesta = await fetch(`${apiUrl}/${producto.id}`,
+                {
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(producto)
-            })
-            if(!respuesta.ok){
-                throw new Error('Error al agregar producto')
-            }
+                })
+            if (!respuesta.ok) throw Error('Error al actualizar el producto')
             const data = await respuesta.json()
-            alert('Producto agregado correctamente')
+            alert('Producto actualizado correctamente')
+            setOpenEditor(false)
+            setSeleccionado(null)
             cargarProductos()
-            setOpen(false)
-            }catch(error){
-                console.log(error.message);
-                
-            }
+        } catch (error) {
+            console.log(error.message);
+
         }
-    
-    
-        const actualizarProducto = async(producto) =>{
+    }
+
+
+    const eliminarProducto = async (id) => {
+        const confirmar = window.confirm('Estas seguro de eliminar el producto?')
+        if (confirmar) {
             try {
-                  const respuesta = await fetch(`${apiUrl}/${producto.id}`,
-                    {method:'PUT',
-                        headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(producto)
-                    })
-                    if(!respuesta.ok) throw Error ('Error al actualizar el producto')
-                        const data = await respuesta.json()
-                    alert('Producto actualizado correctamente')
-                    setOpenEditor(false)
-                    setSeleccionado(null)
-                    cargarProductos()
+                const respuesta = await fetch(`${apiUrl}/${id}`, {
+                    method: 'DELETE',
+                })
+                if (!respuesta.ok) throw Error('Error al eliminar')
+                // alert('Producto Eliminado correctamente')
+                Swal.fire({
+                    title: "Administración de Productos",
+                    text: "Producto Eliminado correctamente",
+                    icon: "error"
+                });
+                cargarProductos()
             } catch (error) {
-                console.log(error.message);
-                
+                alert('Hubo un problema al eliminar el producto')
             }
         }
-    
-    
-        const eliminarProducto = async (id)=>{
-          const confirmar = window.confirm('Estas seguro de eliminar el producto?')
-          if (confirmar) {
-            try{
-              const respuesta = await fetch(`${apiUrl}/${id}`,{
-              method:'DELETE',
-              })
-                if(!respuesta.ok) throw Error('Error al eliminar')
-                  alert('Producto Eliminado correctamente')
-                  cargarProductos()
-                }catch(error){
-                   alert('Hubo un problema al eliminar el producto')
-                }
-            }
-        }
+    }
 
     return (
         <AdminContext.Provider value={{

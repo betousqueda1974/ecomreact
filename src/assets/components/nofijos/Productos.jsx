@@ -27,7 +27,6 @@ const Productos = ({producto, addToCart}) => {
       <button onClick={() => addToCart(producto)} >Agregar al carrito</button>
       
       <Link to={`/galeria/${producto.id}`}>Detalle</Link>
-      
     </section>
   )
 }
