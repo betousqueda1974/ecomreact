@@ -9,6 +9,7 @@ export const CartProvider = ({children}) => {
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(false)
   const [isAuthenticated, setIsAuth] = useState(false)
+  const [busqueda, setBusqueda]= useState("")
 
 
   useEffect(()=>{
@@ -26,6 +27,8 @@ export const CartProvider = ({children}) => {
       setError(true)
     })
   },[])
+
+  const productosFiltrados = productos.filter((producto)=> producto?.nombre.toLowerCase().includes(busqueda.toLowerCase()))
 
   const handleAddtoCart = (product) => {
     const productInCart = cart.find((item) => item.id === product.id);
@@ -59,7 +62,7 @@ export const CartProvider = ({children}) => {
   return(
     <CartContext.Provider
       value = {
-        {cart, productos, cargando, error, isAuthenticated, setIsAuth, handleAddtoCart, handleDeltoCart}
+        {cart, productos, cargando, error, isAuthenticated, setIsAuth, handleAddtoCart, handleDeltoCart, productosFiltrados, busqueda, setBusqueda }
         }>
       {children}
     </CartContext.Provider>
