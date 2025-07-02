@@ -15,8 +15,8 @@ function AltaProducto({ onAgregar }) {
 
     const validarFormulario = () => {
         const nuevosErrores = {};
-        if (!producto.nombre.trim()) {
-            nuevosErrores.nombre = 'El nombre es obligatorio.';
+        if (!producto.nombre.trim() || producto.nombre.length < 3) {
+            nuevosErrores.nombre = 'El nombre debe tener al menos 3 (tres) caracteres.';
         }
         if (!producto.precio || producto.precio <= 0) {
             nuevosErrores.precio = 'El precio debe ser mayor a 0.';
