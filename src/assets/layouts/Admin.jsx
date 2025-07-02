@@ -6,27 +6,27 @@ import { CartContext } from "../../context/CartContext";
 
 const Admin = () => {
 
-    const {productos,
-            loading,
-            open,
-            setOpen,
-            openEditor,
-            setOpenEditor,
-            seleccionado,
-            setSeleccionado,
-            agregarProducto,
-            actualizarProducto,
-            eliminarProducto,
-        } = useContext(AdminContext)
-    
-    const {isAuthenticated, setIsAuth} = useContext(CartContext)
+    const { productos,
+        loading,
+        open,
+        setOpen,
+        openEditor,
+        setOpenEditor,
+        seleccionado,
+        setSeleccionado,
+        agregarProducto,
+        actualizarProducto,
+        eliminarProducto,
+    } = useContext(AdminContext)
+
+    const { isAuthenticated, setIsAuth } = useContext(CartContext)
 
     console.log(productos)
 
     const actEstAut = () => {
-      setIsAuth(false);
-      localStorage.setItem('isAuth', false)
-      };
+        setIsAuth(false);
+        localStorage.setItem('isAuth', false)
+    };
 
     return (
         <div className="container">
@@ -41,14 +41,45 @@ const Admin = () => {
                                     <i className="fa-solid fa-right-from-bracket"></i>
                                 </button>
                             </li> */}
-                            <li className="navItem">     
-                                <a href="/login" onClick={()=> actEstAut()}>Logout</a>
+                            <li className="navItem">
+                                <a href="/login" onClick={() => actEstAut()}>Logout</a>
                             </li>
                         </ul>
                     </nav>
                     <h1 className="title">Panel Administrativo</h1>
 
-                    <ul className="list">
+                    
+
+
+                        {productos.map((product) => (
+                            <li key={product.id} className="listItem">
+                              <section className='cardAdmin'>
+                                <div className='imgContainerAdm'>
+                                    <img src={product.imagen} alt="" className='imagen' />
+                                </div>
+                                <h3 className='nombre'>{product.nombre}</h3>
+                                <p className='precio'>${product.precio}</p>
+                                <p className='stock'>{product.stock}</p>
+                                <div>
+                                    <button className="editButton" onClick={() => {
+                                    setOpenEditor(true)
+                                    setSeleccionado(product)
+                                    }}>Editar</button>
+                                    <button className="deleteButton" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
+                                </div>
+                              </section>
+                            </li>
+                        ))}
+
+                        {/* <Link to={`/galeria/${producto.id}`}>Detalle</Link> */}
+               
+
+
+
+
+
+
+                    {/* <ul className="list">
                         {productos.map((product) => (
                             <li key={product.id} className="listItem">
                                 <img
@@ -69,12 +100,17 @@ const Admin = () => {
                                 </div>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
+
+
+
+
+
                 </>
             )}
-            <button onClick={()=> setOpen(true)}>Agregar producto nuevo</button>
-            {open && (<AltaProducto onAgregar={agregarProducto}/>)}
-            {openEditor && (<EditarProducto productoSeleccionado={seleccionado} onActualizar={actualizarProducto}/>)}
+            <button onClick={() => setOpen(true)}>Agregar producto nuevo</button>
+            {open && (<AltaProducto onAgregar={agregarProducto} />)}
+            {openEditor && (<EditarProducto productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)}
         </div>
     );
 };

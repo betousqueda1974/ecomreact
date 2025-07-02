@@ -17,8 +17,6 @@ const Header = ({cartItems, deltoCart}) => {
           <li><Link to='/galeria'>Productos</Link></li>
           <li><Link to='/contacto'>Contacto</Link></li>
           <li className='cartNav'>
-            {/* <button className='btnCart' onClick={() => setIsCartOpen(true)}><i className="fa-solid fa-cart-shopping"></i></button>            
-            <Cart deltoCart={deltoCart} cartItems={cartItems} isOpen={isCartOpen} onClose={() => setIsCartOpen(false)}/> */}
             <button className='btnCart' onClick={() => setIsCartOpen(true)}><FaShoppingCart style={{color:'white'}}/></button>            
             <Cart deltoCart={deltoCart} cartItems={cartItems} isOpen={isCartOpen} onClose={() => setIsCartOpen(false)}/>
           </li>
