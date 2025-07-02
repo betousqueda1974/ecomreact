@@ -13,13 +13,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('isAuth') === 'true'
-    console.log("Inicio")
-    console.log(isAuthenticated)
     if (isAuthenticated) {
       setIsAuth(true)
       navigate('/admin')
-      console.log("Pasó por el usseEffec")
-      console.log(isAuthenticated)
     }
   }, [])
 
@@ -50,8 +46,6 @@ export const AuthProvider = ({ children }) => {
           setIsAuth(true)
           localStorage.setItem('isAuth', true)
           navigate('/admin')
-          console.log("Entró por admin")
-          console.log(isAuthenticated)
         } else {
           setIsAuth(false);
           navigate('/');

@@ -21,6 +21,8 @@ const Admin = () => {
     
     const {isAuthenticated, setIsAuth} = useContext(CartContext)
 
+    console.log(productos)
+
     const actEstAut = () => {
       setIsAuth(false);
       localStorage.setItem('isAuth', false)
@@ -54,8 +56,9 @@ const Admin = () => {
                                     alt={product.nombre}
                                     className="listItemImage"
                                 />
-                                <span>{product.nombre}</span>
-                                <span>${product.precio}</span>
+                                <span style={{color: 'black'}}>{product.nombre}</span>
+                                <span style={{color: 'blue'}}>${product.precio}</span>
+                                <span style={{color: 'red'}}>{product.stock}</span>
                                 <div>
                                     <button className="editButton" onClick={()=>{
                                         setOpenEditor(true)

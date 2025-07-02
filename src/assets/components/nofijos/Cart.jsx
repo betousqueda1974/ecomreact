@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './stylesCart.css'
+import { CartContext } from '../../../context/CartContext'
 
 const Cart = ({cartItems, isOpen, onClose, deltoCart}) => {
+  
+  const { cart, handleDeleteFromCart, clearCart, compraFin } = useContext(CartContext)
+
   return (
     <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
       
@@ -16,11 +20,13 @@ const Cart = ({cartItems, isOpen, onClose, deltoCart}) => {
             {cartItems.map((item, index)=>(
               <>
                 <li key={item.id} style={{color:'black'}}>
-                  {item.nombre} - {item.precio}
+                  {item.nombre} - {item.precio} - (+ {item.quantity})
                   <button onClick={() => deltoCart(item)}><i className="fa-solid fa-trash"></i></button>
                 </li>
-              </>
-            ))}    
+              </>  
+            ))}
+            <><button onClick={()=> clearCart()}>Vaciar Carrito</button></>
+            <><button onClick={()=> compraFin()}>Finalizar Compra</button></>
           </ul>)}
       </div>
 
