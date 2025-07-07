@@ -36,7 +36,6 @@ export const AdminProvider = ({ children }) => {
             setProductos(data)
         } catch (error) {
             console.log('Error al cargar productos ', error);
-
         }
     }
 
@@ -60,7 +59,7 @@ export const AdminProvider = ({ children }) => {
                 icon: "success"
             });
             cargarProductos()
-            setOpen(false)
+            // setOpen(false)
         } catch (error) {
             console.log(error.message);
 
@@ -80,9 +79,14 @@ export const AdminProvider = ({ children }) => {
                 })
             if (!respuesta.ok) throw Error('Error al actualizar el producto')
             const data = await respuesta.json()
-            alert('Producto actualizado correctamente')
-            setOpenEditor(false)
-            setSeleccionado(null)
+            // alert('Producto actualizado correctamente')
+            Swal.fire({
+                title: "Administración de Productos",
+                text: "Producto actualizado correctamente",
+                icon: "success"
+            });
+           /*  setOpenEditor(false)
+            setSeleccionado(null) */
             cargarProductos()
         } catch (error) {
             console.log(error.message);
@@ -115,12 +119,12 @@ export const AdminProvider = ({ children }) => {
         <AdminContext.Provider value={{
             productos,
             loading,
-            open,
+           /*  open,
             setOpen,
             openEditor,
             setOpenEditor,
             seleccionado,
-            setSeleccionado,
+            setSeleccionado, */
             agregarProducto,
             actualizarProducto,
             eliminarProducto,

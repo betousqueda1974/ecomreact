@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, {useContext, useState } from 'react';
+import { AdminContext } from '../../../context/AdminContext';
+import { Link } from 'react-router-dom';
 
-function AltaProducto({ onAgregar }) {
+  function AltaProducto() {
+
+    const {agregarProducto} = useContext(AdminContext)
+     
+        
     const [producto, setProducto] = useState({
         nombre: '',
         precio: '',
@@ -33,7 +39,7 @@ function AltaProducto({ onAgregar }) {
         if (!validarFormulario()) {
             return;
         }
-        onAgregar(producto); // Llamada a la función para agregar el producto
+        agregarProducto(producto);
         setProducto({ nombre: '', precio: '', stock: '' }); // Limpiar el formulario
     };
 
@@ -64,6 +70,7 @@ function AltaProducto({ onAgregar }) {
                 {errores.stock && <p style={{ color: 'red' }}>{errores.stock}</p>}
             </div>
             <button type="submit">Agregar Producto</button>
+            <Link to={'/admin'}>Regresar</Link>
         </form>
     );
 }

@@ -8,9 +8,11 @@ import Contactos from './assets/layouts/Contactos'
 import NotFound from './assets/layouts/NotFound'
 import DetalleProducto from './assets/components/nofijos/DetalleProducto'
 import Admin from './assets/layouts/Admin'
+import AltaProducto from './assets/components/nofijos/AltaProducto'
 import RutaProtegida from './auth/RutaProtegida'
 import { CartContext } from './context/CartContext'
 import Login from './assets/layouts/Login'
+import EditarProducto from './assets/components/nofijos/EditarProducto'
 
 function App() {
   const {cart, productos, cargando, error, isAuthenticated, handleAddtoCart, handleDeltoCart} = useContext(CartContext)
@@ -29,6 +31,10 @@ function App() {
           <Route path='/contacto' element={<Contactos />}/>
 
           <Route path='/galeria/:id' element={<DetalleProducto />}/>
+
+          <Route path='/admin/AltaProducto' element={<AltaProducto />}/>
+
+          <Route path='/admin/:id' element={<EditarProducto />}/>
 
           <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>}/>
 
