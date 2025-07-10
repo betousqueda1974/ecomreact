@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AdminContext } from '../../../context/AdminContext';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
+import HeaderAdmin from '../fijos/HeaderAdmin';
+import Footer from '../fijos/Footer';
 
 function EditarProducto() {
 
@@ -48,6 +49,8 @@ function EditarProducto() {
     };
 
      return (
+         <>
+        <HeaderAdmin />
         <form onSubmit={(e) => {
             e.preventDefault()
             if (!validarFormulario()) {
@@ -78,6 +81,8 @@ function EditarProducto() {
             <button type="submit">Actualizar Producto</button>
             <Link to={'/admin'}>Regresar</Link>
         </form>
+        <Footer/>               
+    </>
     );
 }
 export default EditarProducto;

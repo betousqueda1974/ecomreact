@@ -6,11 +6,9 @@ const ProductList = ({productos, addToCart}) => {
 
   const {productosFiltrados, busqueda, setBusqueda} = useContext(CartContext)
 
-  console.log(busqueda)
-
   return (
     <>
-      <h1>Souvenirs Publicados</h1>
+      {/* <h1>Souvenirs Publicados</h1> */}
 
         <input 
             type='text'

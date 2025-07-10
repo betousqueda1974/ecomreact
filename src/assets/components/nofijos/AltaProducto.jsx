@@ -1,6 +1,8 @@
 import React, {useContext, useState } from 'react';
 import { AdminContext } from '../../../context/AdminContext';
 import { Link } from 'react-router-dom';
+import HeaderAdmin from '../fijos/HeaderAdmin';
+import Footer from '../fijos/Footer';
 
   function AltaProducto() {
 
@@ -44,13 +46,15 @@ import { Link } from 'react-router-dom';
     };
 
     return (
+        <>
+        <HeaderAdmin />
         <form onSubmit={handleSubmit}>
             <h2>Agregar Producto</h2>
             <div>
                 <label>Nombre:</label>
                 <input
                     type="text" name="nombre" value={producto.nombre} onChange={handleChange} required />
-                     {errores.nombre && <p style={{ color: 'red' }}>{errores.nombre}</p>}
+                    {errores.nombre && <p style={{ color: 'red' }}>{errores.nombre}</p>}
             </div>
             <div>
                 <label>Precio:</label>
@@ -72,6 +76,8 @@ import { Link } from 'react-router-dom';
             <button type="submit">Agregar Producto</button>
             <Link to={'/admin'}>Regresar</Link>
         </form>
+        <Footer/>
+        </>
     );
 }
 

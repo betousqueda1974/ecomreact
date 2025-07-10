@@ -9,7 +9,25 @@
   transition: box-shadow 0.3s ease;
 }
 
-.cardAdmin{
+
+.cardAdmin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.artAdmin {
+  border-radius: 10%;
+  border: solid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color:lightblue;
+  padding: 10px;
+}
+
+
+
+/*.cardAdmin{
   background-color: antiquewhite;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -18,7 +36,7 @@
   flex-direction:column;
   align-items: center;
   transition: box-shadow 0.3s ease;
-}
+} */
 
 .imgContainer{
   width: 100%;
@@ -33,15 +51,15 @@
 }
 
 .imgContainerAdm{
-  width: 10%;
+  width: 100%;
   height: 100px;
   background-color: #f0f0f0;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 12px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .imagen{
