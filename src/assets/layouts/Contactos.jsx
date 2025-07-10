@@ -28,7 +28,6 @@ const Contactos = () => {
     }
 
     try {
-
       Swal.fire({
         title: "Contacto",
         text: "Mensaje enviado correctamente",
@@ -58,7 +57,6 @@ const Contactos = () => {
             Puede enviarnos un mensaje a través de este formulario y nos pondremos en contacto con usted a la brevedad posible.</p>
         </div>
 
-
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6569.677832308327!2d-58.44239482565533!3d-34.58294225639886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb592c98a55a5%3A0x4a8e23f5994d707a!2sGorriti%205801-5899%2C%20C1414BKI%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses-419!2snl!4v1729802312717!5m2!1ses-419!2snl" width="100%" height="450" loading="lazy"></iframe>
 
         <div className="containerform">
@@ -84,7 +82,6 @@ const Contactos = () => {
           </form>
         </div>
       </div>
-
       <Footer />
     </>
   )

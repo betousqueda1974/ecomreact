@@ -25,18 +25,15 @@
   padding: 10px;
 }
 
+.menuAdmin {
+  font-weight: 500;
+  color: white;
+  text-decoration: inherit;
+}
 
-
-/*.cardAdmin{
-  background-color: antiquewhite;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-  transition: box-shadow 0.3s ease;
-} */
+.menuAdmin:hover {
+  color:bisque;
+}
 
 .imgContainer{
   width: 100%;
@@ -57,9 +54,6 @@
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 12px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .imagen{
@@ -105,4 +99,15 @@
   font-size: 18px;
   font-weight: 600;
   transition: background-color 0.2s;
+}
+
+.detProd{
+  color: black;
+}
+
+.eliProd{
+  margin-bottom: 4px;
+  background-color:darkred;
+  color: white;
+  font-size: 18px;
 }

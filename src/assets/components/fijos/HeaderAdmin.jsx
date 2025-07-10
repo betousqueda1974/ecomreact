@@ -14,16 +14,9 @@ const HeaderAdmin = () => {
   return (
     <header>
       <nav>
-        <ul className="nav">
-          <li><Link to={'/admin/altaProducto'}>Nuevo producto</Link></li>
-
-          {/* <li className="navItem">
-              <button className="navButton">
-                  <i className="fa-solid fa-right-from-bracket"></i>
-              </button>
-            </li> */}
-          <li> <a href="/login" onClick={() => actEstAut()}><i className="fa-solid fa-right-from-bracket"></i></a></li>
-          {/* <li className="navItem"> <a href="/login" onClick={() => actEstAut()}>Logout</a> </li> */}
+        <ul>
+          <li className='menuAdmin'><Link to={'/admin/altaProducto'}>Nuevo producto</Link></li>
+          <li className='menuAdmin'> <a href="/login" onClick={() => actEstAut()}><i className="fa-solid fa-right-from-bracket"></i></a></li>
         </ul>
       </nav>
     </header>
