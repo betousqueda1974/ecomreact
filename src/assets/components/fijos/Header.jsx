@@ -13,9 +13,10 @@ const Header = ({cartItems, deltoCart}) => {
       <nav>
         <ul>
           <li><Link to='/'>Inicio</Link></li>
-          <li><Link to='/acercade'>Sobre Nosotros</Link></li>
+          <li><Link to='/acercade'>Nosotros</Link></li>
           <li><Link to='/galeria'>Productos</Link></li>
           <li><Link to='/contacto'>Contacto</Link></li>
+          <li><Link to='/login'>Login</Link></li>
           <li className='cartNav'>
             <button className='btnCart' onClick={() => setIsCartOpen(true)}><FaShoppingCart style={{color:'white'}}/></button>            
             <Cart deltoCart={deltoCart} cartItems={cartItems} isOpen={isCartOpen} onClose={() => setIsCartOpen(false)}/>
